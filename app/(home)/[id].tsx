@@ -74,7 +74,7 @@ export default function CallScreen() {
   return (
     <StreamCall call={call}>
      <Room slug={slug}/>
-     {/* <Text>Call fjkhfdjkhg</Text> */}
+      <Text>Call fjkhfdjkhg</Text>
     </StreamCall>
   )
 }

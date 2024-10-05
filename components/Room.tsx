@@ -12,7 +12,7 @@ import { useRouter } from 'expo-router';
 export default function Room({slug}:{slug:string }) {
  const router = useRouter();
   return (
-    <View>
+    <View style={{flex:1}}>
         <View
         style={{position:"absolute",
             top:10,
@@ -35,7 +35,7 @@ const RoomId = ({slug}:{slug:string | null}) =>{
         <TouchableOpacity
         onPress={()=> copySlug(slug)}
         style={{
-            backgroundColor:"rgba(0,0,0,0.5)",
+            backgroundColor:"red",
             padding:10,
             borderRadius:5,
         }}
