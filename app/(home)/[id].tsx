@@ -2,7 +2,7 @@ import { View, Text, ActivityIndicator } from 'react-native'
 import  { useEffect, useState } from 'react'
 import { Call, CallingState, StreamCall, useStreamVideoClient } from '@stream-io/video-react-native-sdk'
 import { useLocalSearchParams } from 'expo-router';
-
+import Room from '@/components/Room';
 export default function CallScreen() {
   const {id} = useLocalSearchParams();
   const [call,setCall] = useState<Call | null>(null);
@@ -67,8 +67,8 @@ export default function CallScreen() {
   }
   return (
     <StreamCall call={call}>
-     {/* <Room slug={slug}/> */}
-     <Text>Call fjkhfdjkhg</Text>
+     <Room slug={slug}/>
+     {/* <Text>Call fjkhfdjkhg</Text> */}
     </StreamCall>
   )
 }
