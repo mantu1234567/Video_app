@@ -1,17 +1,19 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+import { formatSlug } from '@/lib/slugs';
+import { copySlug } from '@/lib/slugs';
 // import { copySlug, formatSlug } from '@/lib/slugs'
-// import { useRouter } from 'expo-router'
+
 // import { SlideInUp } from 'react-native-reanimated'
  import { CallContent } from '@stream-io/video-react-native-sdk'
+import { useRouter } from 'expo-router';
  
 export default function Room({slug}:{slug:string }) {
-    // const router = useRouter();
+ const router = useRouter();
   return (
     <View>
-        {/* <View
+        <View
         style={{position:"absolute",
             top:10,
             left:10,
@@ -19,31 +21,26 @@ export default function Room({slug}:{slug:string }) {
         }}
         >
         <RoomId slug={slug} />
-        </View> */}
+        </View>
      <GestureHandlerRootView style={{flex:1}}>
-     {/* <CallContent onHangupCallHandler={()=>router.back()}/> */}
-     <CallContent/>
+     <CallContent onHangupCallHandler={()=>router.back()}/>
+     
      </GestureHandlerRootView>
     </View>
   );
 }
 
-// const RoomId = ({slug}:{slug:string | null}) =>{
-//     return(
-//         <TouchableOpacity
-//         onPress={()=> copySlug(slug)}
-//         style={{
-//             backgroundColor:"rgba(0,0,0,0.5)",
-//             padding:10,
-//             borderRadius:5,
-//         }}
-//         >
-//          <Text
-//          style={{color:"white",}}
-//          >
-//             Call ID:{formatSlug(slug)}
-//          </Text>
-    
-//         </TouchableOpacity>
-//     )
-//}
+const RoomId = ({slug}:{slug:string | null}) =>{
+    return(
+        <TouchableOpacity
+        onPress={()=> copySlug(slug)}
+        style={{
+            backgroundColor:"rgba(0,0,0,0.5)",
+            padding:10,
+            borderRadius:5,
+        }}
+        >
+         <Text style={{color:"white",}}>Call ID:{formatSlug(slug)}</Text>
+            </TouchableOpacity>
+    )
+};
